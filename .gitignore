@@ -1,0 +1,28 @@
+venv/
+.env
+__pycache__/
+*.pyc
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets
+.env
+.env.*
+!.env.example
+API-KEY.txt
+
+# Database and uploaded documents
+chroma_db/
+backend/chroma_db/
+backend/uploads/
+*.db
+
+# Frontend
+node_modules/
+dist/
+
+# Editor
+.vscode/
