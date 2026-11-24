@@ -8,9 +8,19 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgres://",
+        "postgresql://",
+        1
+    )
+
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL is not configured")
+
 engine = create_engine(
     DATABASE_URL,
-    echo=True
+    echo=False
 )
 
 SessionLocal = sessionmaker(
@@ -20,6 +30,7 @@ SessionLocal = sessionmaker(
 )
 
 Base = declarative_base()
+
 
 def get_db():
     db = SessionLocal()

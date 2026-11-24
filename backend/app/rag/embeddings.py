@@ -1,9 +1,16 @@
 
+import os
 import requests
 
-OLLAMA_EMBED_URL = "http://127.0.0.1:11434/api/embed"
+OLLAMA_EMBED_URL = os.getenv(
+    "OLLAMA_EMBED_URL",
+    "http://127.0.0.1:11434/api/embed"
+)
 
-EMBEDDING_MODEL = "nomic-embed-text"
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL",
+    "nomic-embed-text"
+)
 
 
 def generate_embedding(text: str):

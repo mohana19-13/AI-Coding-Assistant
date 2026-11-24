@@ -1,8 +1,16 @@
 
+import os
 import requests
 
-OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
-MODEL_NAME = "qwen2.5-coder:1.5b"
+OLLAMA_URL = os.getenv(
+    "OLLAMA_URL",
+    "http://127.0.0.1:11434/api/generate"
+)
+
+MODEL_NAME = os.getenv(
+    "MODEL_NAME",
+    "qwen2.5-coder:1.5b"
+)
 
 
 TUTOR_INSTRUCTIONS = """
